@@ -7,5 +7,5 @@ export default function FundoMobile(){
                 <ion-icon name="heart-outline"></ion-icon>
                 <ion-icon name="person-outline"></ion-icon>
             </div>
-    )
+           )
 }
