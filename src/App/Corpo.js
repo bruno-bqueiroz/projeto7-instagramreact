@@ -1,33 +1,87 @@
 import Sidebar from "./Sidebar";
-{/*Props story*/}
+
+const arrayStories = [
+    {  
+    img : "assets/img/9gag.svg", 
+    texto : "9gag"
+  },
+    {
+    img : "assets/img/meowed.svg",
+    texto : "meowed"
+  },
+    {
+    img : "assets/img/barked.svg",
+    texto : "barked"
+  },
+    {
+    img : "assets/img/nathanwpylestrangeplanet.svg",
+    texto : " nathanwpylestrangeplanet"
+  },
+    {
+    img : "assets/img/wawawicomics.svg",
+    texto : "wawawicomics"
+  },
+    {
+    img : "assets/img/respondeai.svg",
+    texto : "respondeai"
+  },
+  {
+    img : "assets/img/filomoderna.svg",
+    texto : "gfilomodernaag"
+  },{
+    img : "assets/img/memeriagourmet.svg",
+    texto : "memeriagourmet"    
+  }
+];
+
+
 function Stories (props){
   return (
+    props.stories.map((objeto)=>(
     <div class="story">
       <div class="imagem">
-        <img src={props.img} />
+        <img src={objeto.img} />
       </div>
       <div class="usuario">
-        {props.texto}
+        {objeto.texto}
       </div>
   </div> 
-  )
+  )))
 }
-{/*Props post*/}
+
+const arrayPost = [
+  {   
+  img : "assets/img/meowed.svg",
+  texto : "meowed",
+  imgconteudo : "assets/img/gato-telefone.svg",
+  imgCurtidoPor : "assets/img/respondeai.svg",
+  textoCurtidoPor : "respondeai"
+  },
+    {     
+  img : "assets/img/barked.svg",
+  texto : "barked",
+  imgconteudo : "assets/img/dog.svg",
+  imgCurtidoPor : "assets/img/adorable_animals.svg",
+  textoCurtidoPor : "adorable_animals"
+  }       
+];
+
 function Posts (props){
   return (
+    props.posts.map((objeto)=>(
     <div class="post">
-              <div class="topo">
+            <div class="topo">
                 <div class="usuario">
-                  <img src={props.img} />
-                  {props.texto}
+                  <img src={objeto.img} />
+                  {objeto.texto}
                 </div>
                 <div class="acoes">
                   <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
               </div>
-
+              
               <div class="conteudo">
-                <img src={props.imgconteudo} />
+                <img src={objeto.imgconteudo} />
               </div>
 
               <div class="fundo">
@@ -43,44 +97,36 @@ function Posts (props){
                 </div>
 
                 <div class="curtidas">
-                  <img src={props.imgCurtidoPor} />
+                  <img src={objeto.imgCurtidoPor} />
                   <div class="texto">
-                    Curtido por <strong>{props.textoCurtidoPor}</strong> e <strong>outras 101.523 pessoas</strong>
+                    Curtido por <strong>{objeto.textoCurtidoPor}</strong> e <strong>outras 101.523 pessoas</strong>
                   </div>
                 </div>
               </div>
-            </div>
-  )
-}
+      </div>
+  )))
+} 
+
+
 
 export default function Corpo() {
     return (
       <div class="corpo">
         <div class="esquerda">
           <div class="stories">
-            <Stories img = "assets/img/9gag.svg" texto = "9gag" />
-            <Stories img = "assets/img/meowed.svg" texto = "meowed" />
-            <Stories img = "assets/img/barked.svg" texto = "barked" />
-            <Stories img = "assets/img/nathanwpylestrangeplanet.svg" texto = " nathanwpylestrangeplanet" />
-            <Stories img = "assets/img/wawawicomics.svg" texto = "wawawicomics" />
-            <Stories img = "assets/img/respondeai.svg" texto = "respondeai" />
-            <Stories img = "assets/img/filomoderna.svg" texto = "gfilomodernaag" />
-            <Stories img = "assets/img/memeriagourmet.svg" texto = "memeriagourmet" />
+
+            <Stories stories = {arrayStories} /> 
+
             <div class="setinha">
               <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
           </div>
 
           <div class="posts">
-            <Posts img = "assets/img/meowed.svg" texto = "meowed"
-              imgconteudo = "assets/img/gato-telefone.svg" imgCurtidoPor = "assets/img/respondeai.svg"
-              textoCurtidoPor = "respondeai"
-            />
-            <Posts img = "assets/img/barked.svg" texto = "barked"
-              imgconteudo = "assets/img/dog.svg" imgCurtidoPor = "assets/img/adorable_animals.svg"
-              textoCurtidoPor = "adorable_animals"
-            />
-            </div>
+
+            <Posts posts = {arrayPost}/>
+            
+          </div>
         </div>
 
         <Sidebar />
