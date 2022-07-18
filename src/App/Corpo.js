@@ -76,9 +76,18 @@ function Posts (props){
   const [botao, setBotao] = React.useState("heart-outline");
   const [corBotao, setCorBotao] = React.useState("deslike");
 
+  function coracao (){
+    if (botao === "heart"){
+      setBotao = ("heart-outline");
+    }
+  }
+
   return (
     props.posts.map((objeto)=>(
+      
+      
     <div class="post">
+
               <div class="topo">
                 <div class="usuario">
                   <img src={objeto.img} />
@@ -98,8 +107,11 @@ function Posts (props){
                   <div>
                     <ul class = {corBotao}>
                     <ion-icon name={botao} onClick={() => {
+                      if (botao !== "heart"){
                     setBotao("heart");
+                    }
                     setCorBotao("like");
+                  
                     }}> 
                     </ion-icon>
                     <ion-icon name="chatbubble-outline"> </ion-icon>
