@@ -2,6 +2,7 @@
     box-sizing: border-box;
   }
   
+  
   body {
     background-color: #FAFAFA;
     margin: 54px 0 0;
@@ -178,6 +179,11 @@
   
   .post .usuario, .post .topo img, .post .fundo img, .post ion-icon, .post strong {
     cursor: pointer;
+  }
+ 
+  
+  .like :first-child{
+    color: red;
   }
   
   .post .conteudo img {

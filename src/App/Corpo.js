@@ -1,3 +1,4 @@
+import React from "react";
 import Sidebar from "./Sidebar";
 
 const arrayStories = [
@@ -66,11 +67,19 @@ const arrayPost = [
   }       
 ];
 
+
+function coracao (){
+   
+}
+
 function Posts (props){
+  const [botao, setBotao] = React.useState("heart-outline");
+  const [corBotao, setCorBotao] = React.useState("deslike");
+
   return (
     props.posts.map((objeto)=>(
     <div class="post">
-            <div class="topo">
+              <div class="topo">
                 <div class="usuario">
                   <img src={objeto.img} />
                   {objeto.texto}
@@ -79,7 +88,7 @@ function Posts (props){
                   <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
               </div>
-              
+
               <div class="conteudo">
                 <img src={objeto.imgconteudo} />
               </div>
@@ -87,9 +96,15 @@ function Posts (props){
               <div class="fundo">
                 <div class="acoes">
                   <div>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
+                    <ul class = {corBotao}>
+                    <ion-icon name={botao} onClick={() => {
+                    setBotao("heart");
+                    setCorBotao("like");
+                    }}> 
+                    </ion-icon>
+                    <ion-icon name="chatbubble-outline"> </ion-icon>
+                    <ion-icon name="paper-plane-outline"> </ion-icon>
+                    </ul>
                   </div>
                   <div>
                     <ion-icon name="bookmark-outline"></ion-icon>
